@@ -22,6 +22,7 @@
       --btn: rgba(255,255,255,.08);
       --btnHover: rgba(255,255,255,.12);
       --btnActive: rgba(255,255,255,.16);
+      --btnH: 56px;
       --accent: #6ee7ff;
       --accent2:#a78bfa;
     }
@@ -125,7 +126,7 @@
       justify-content:space-between;
       gap:12px;
       transition: transform .12s ease, background .12s ease, border-color .12s ease;
-      min-height: 56px;
+      min-height: var(--btnH);
     }
 
     .btn:hover{ background: var(--btnHover); }
