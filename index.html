@@ -83,15 +83,23 @@
     }
 
     /* Логотип: клади logo.png рядом с index.html */
-    .logo{
-      height: 84px;
+        .logo{
+      height: clamp(170px, 26vw, 300px);
       width: auto;
-      max-width: min(240px, 80vw);
-      border-radius: 0;
-      border: none;
-background: linear-gradient(180deg, var(--card2), transparent);
+      max-width: min(380px, 96vw);
       object-fit: contain;
-      padding: 6px;
+      display:block;
+
+      /* никаких эффектов */
+      background: none;
+      padding: 0;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      filter: none;
+      opacity: 1;
+      mix-blend-mode: normal;
+      transform: none;
     }
 
     .content{
