@@ -82,6 +82,23 @@
       gap:12px;
     }
 
+    .brandRow{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+    }
+
+    .logo{
+      width:56px;
+      height:56px;
+      border-radius: 14px;
+      border: 1px solid var(--ring);
+      background: linear-gradient(180deg, var(--card2), transparent);
+      object-fit: cover;
+      flex-shrink:0;
+    }
+
     .brand{
       display:flex;
       flex-direction:column;
@@ -228,6 +245,7 @@
       align-items:center;
       justify-content:space-between;
       gap:12px;
+      flex-wrap:wrap;
     }
 
     .pill{
@@ -242,12 +260,46 @@
       white-space:nowrap;
     }
 
+    .contacts{
+      padding: 14px 18px 18px 18px;
+      border-top: 1px solid var(--ring);
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    .contacts .block{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+
+    .contacts strong{
+      color: var(--text);
+      font-weight: 650;
+      font-size: 13px;
+    }
+
+    .contacts a{
+      color: var(--text);
+      text-decoration:none;
+      border-bottom: 1px dotted color-mix(in oklab, var(--text) 35%, transparent);
+      width: fit-content;
+    }
+    .contacts a:hover{
+      border-bottom-color: color-mix(in oklab, var(--text) 60%, transparent);
+    }
+
     svg{ width:20px; height:20px; display:block; }
 
     @media (min-width: 860px){
       body{ padding: 28px; }
       .wrap{ width: min(560px, 100%); }
       .title{ font-size: 19px; }
+      .logo{ width:60px; height:60px; }
     }
   </style>
 </head>
@@ -256,9 +308,13 @@
   <main class="wrap">
     <section class="card" aria-label="Страница визитка">
       <header class="header">
-        <div class="brand">
-          <h1 class="title">Быстрые ссылки</h1>
-          <p class="subtitle">Сайт, соцсети и отзывы. Нажал и пошёл жить дальше.</p>
+        <div class="brandRow">
+          <!-- Логотип: положи файл logo.jpg рядом с index.html в репозитории -->
+          <img class="logo" src="logo.jpg" alt="Корпорация Холод" />
+          <div class="brand">
+            <h1 class="title">Корпорация Холод</h1>
+            <p class="subtitle">Сайт, соцсети и отзывы. Нажал и пошёл жить дальше.</p>
+          </div>
         </div>
 
         <div class="tools">
@@ -364,12 +420,33 @@
       </div>
 
       <footer class="footer">
-        <span class="pill" aria-label="Подсказка">
-          <span aria-hidden="true">•</span>
-          <span>Открывается в новой вкладке</span>
-        </span>
+        <span class="pill" aria-label="Подсказка">Открывается в новой вкладке</span>
         <span class="pill" id="themeLabel">Тема: авто</span>
       </footer>
+
+      <div class="contacts" aria-label="Контакты">
+        <div class="block">
+          <strong>Адрес</strong>
+          <div>г. Чебоксары, ул. Калинина, 80Г, оф.8, 2 этаж</div>
+        </div>
+
+        <div class="block">
+          <strong>Email</strong>
+          <a href="mailto:dubrovsky-xolod@mail.ru">dubrovsky-xolod@mail.ru</a>
+        </div>
+
+        <div class="block">
+          <strong>Телефон</strong>
+          <a href="tel:+79519999398">+7 951 999 93 98</a>
+          <a href="tel:+78352606160">+7 8352 60 61 60</a>
+        </div>
+
+        <div class="block">
+          <strong>Реквизиты</strong>
+          <div>ИНН 212909389083</div>
+          <div>ОГРНИП 316213000076123</div>
+        </div>
+      </div>
     </section>
   </main>
 
