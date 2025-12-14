@@ -9,42 +9,41 @@
   <meta name="description" content="Официальный сайт, ВКонтакте и отзывы." />
 
   <style>
-:root{
-  --bg0:#070a12;
-  --bg1:#0b0f1a;
-  --card: rgba(255,255,255,.06);
-  --card2: rgba(255,255,255,.10);
-  --text: rgba(255,255,255,.92);
-  --muted: rgba(255,255,255,.66);
-  --ring: rgba(255,255,255,.18);
-  --shadow: 0 10px 40px rgba(0,0,0,.45);
-  --radius: 18px;
-  --btn: rgba(255,255,255,.08);
-  --btnHover: rgba(255,255,255,.12);
-  --btnActive: rgba(255,255,255,.16);
-  --accent: #6ee7ff;
-  --accent2:#a78bfa;
-}
+    :root{
+      --bg0:#070a12;
+      --bg1:#0b0f1a;
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(255,255,255,.10);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.66);
+      --ring: rgba(255,255,255,.18);
+      --shadow: 0 10px 40px rgba(0,0,0,.45);
+      --radius: 18px;
+      --btn: rgba(255,255,255,.08);
+      --btnHover: rgba(255,255,255,.12);
+      --btnActive: rgba(255,255,255,.16);
+      --accent: #6ee7ff;
+      --accent2:#a78bfa;
+    }
 
-[data-theme="light"]{
-  --bg0:#f7f8fb;
-  --bg1:#eef1f7;
-  --card: rgba(0,0,0,.04);
-  --card2: rgba(0,0,0,.07);
-  --text: rgba(0,0,0,.88);
-  --muted: rgba(0,0,0,.58);
-  --ring: rgba(0,0,0,.12);
-  --shadow: 0 10px 30px rgba(0,0,0,.10);
-  --btn: rgba(0,0,0,.05);
-  --btnHover: rgba(0,0,0,.07);
-  --btnActive: rgba(0,0,0,.10);
-  --accent: #0ea5e9;
-  --accent2:#7c3aed;
-}
+    [data-theme="light"]{
+      --bg0:#f7f8fb;
+      --bg1:#eef1f7;
+      --card: rgba(0,0,0,.04);
+      --card2: rgba(0,0,0,.07);
+      --text: rgba(0,0,0,.88);
+      --muted: rgba(0,0,0,.58);
+      --ring: rgba(0,0,0,.12);
+      --shadow: 0 10px 30px rgba(0,0,0,.10);
+      --btn: rgba(0,0,0,.05);
+      --btnHover: rgba(0,0,0,.07);
+      --btnActive: rgba(0,0,0,.10);
+      --accent: #0ea5e9;
+      --accent2:#7c3aed;
+    }
 
-*{ box-sizing:border-box; }
-
-html,body {
+    *{ box-sizing:border-box; }
+    html,body {
   margin: 0;
   font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
   color: var(--text);
@@ -53,242 +52,261 @@ html,body {
     radial-gradient(900px 600px at 85% 20%, color-mix(in oklab, var(--accent2) 22%, transparent) 0%, transparent 55%),
     linear-gradient(180deg, var(--bg0), var(--bg1));
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  min-height: 100vh;
+  align-items: flex-start; /* Изменено с center на flex-start */
+  justify-content: center;
   padding: max(18px, env(safe-area-inset-top)) 18px calc(18px + 86px + env(safe-area-inset-bottom));
+  min-height: 100vh; /* Гарантируем минимальную высоту */
+  box-sizing: border-box;
 }
 
-.wrap{
+body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1200px 800px at 20% 10%, color-mix(in oklab, var(--accent) 25%, transparent) 0%, transparent 60%),
+        radial-gradient(900px 600px at 85% 20%, color-mix(in oklab, var(--accent2) 22%, transparent) 0%, transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 18px;
+      padding-bottom: calc(18px + 86px + env(safe-area-inset-bottom));
+    }
+
+    .wrap{
   width: 100%;
-  max-width: 600px;
+  max-width: 100%;
   display:flex;
   flex-direction:column;
   gap:14px;
   margin-top: 10px;
+  padding: 0 18px;
 }
 
-.card{
-  background: var(--card);
-  position: relative;
-  border: none;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow), 0 0 0 1px var(--ring);
-  overflow:hidden;
-  backdrop-filter: blur(10px);
-  width: 100%;
-}
+    .card{
+      background: var(--card);
+      position: relative;
+      border: none;
+border-radius: var(--radius);
+      box-shadow: var(--shadow), 0 0 0 1px var(--ring);
+overflow:hidden;
+      backdrop-filter: blur(10px);
+      margin-top: 6px;
+    }
 
-.card::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius: inherit;
-  pointer-events:none;
-  box-shadow: 0 0 0 1px color-mix(in oklab, var(--ring) 85%, transparent);
-}
-
+    
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      border-radius: inherit;
+      pointer-events:none;
+      box-shadow: 0 0 0 1px color-mix(in oklab, var(--ring) 85%, transparent);
+    }
 .header{
-  padding: 18px 18px 12px 18px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
+      padding: 18px 18px 12px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
 
-.logo{
-  height: clamp(119px, 18.2vw, 210px);
-  width: auto;
-  max-width: min(380px, 96vw);
-  object-fit: contain;
-  display:block;
-  background: none;
-  padding: 0;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-  filter: none;
-  opacity: 1;
-  mix-blend-mode: normal;
-  transform: none;
-}
+    /* Логотип: клади logo.png рядом с index.html */
+        .logo{
+      height: clamp(119px, 18.2vw, 210px);
+      width: auto;
+      max-width: min(380px, 96vw);
+      object-fit: contain;
+      display:block;
 
-.content{
-  padding: 12px 12px 12px 12px;
-}
+      /* никаких эффектов */
+      background: none;
+      padding: 0;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      filter: none;
+      opacity: 1;
+      mix-blend-mode: normal;
+      transform: none;
+    }
 
-.list{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  padding: 6px;
-}
+    .content{
+      padding: 12px 12px 12px 12px;
+    }
 
-.btn{
-  text-decoration:none;
-  color: var(--text);
-  background: var(--btn);
-  border: 1px solid var(--ring);
-  border-radius: 16px;
-  padding: 14px 14px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  transition: transform .12s ease, background .12s ease, border-color .12s ease;
-  min-height: 56px;
-}
+    .list{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      padding: 6px;
+    }
 
-.btn:hover{ background: var(--btnHover); }
-.btn:active{ background: var(--btnActive); transform: translateY(1px); }
-.btn:focus{ outline:none; }
-.btn:focus-visible{
-  box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent2) 30%, transparent);
-  border-color: color-mix(in oklab, var(--accent2) 30%, var(--ring));
-}
+    .btn{
+      text-decoration:none;
+      color: var(--text);
+      background: var(--btn);
+      border: 1px solid var(--ring);
+      border-radius: 16px;
+      padding: 14px 14px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      min-height: 56px;
+    }
 
-.left{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  min-width:0;
-}
+    .btn:hover{ background: var(--btnHover); }
+    .btn:active{ background: var(--btnActive); transform: translateY(1px); }
+    .btn:focus{ outline:none; }
+    .btn:focus-visible{
+      box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent2) 30%, transparent);
+      border-color: color-mix(in oklab, var(--accent2) 30%, var(--ring));
+    }
 
-.badge{
-  width: 38px;
-  height: 38px;
-  border-radius: 14px;
-  display:grid;
-  place-items:center;
-  overflow: hidden;
-  border: 1px solid var(--ring);
-  background: linear-gradient(180deg, var(--card2), transparent);
-  flex-shrink:0;
-}
+    .left{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+    }
 
-.badge svg{
-  width: 22px;
-  height: 22px;
-  display:block;
-  opacity:.92;
-}
+    .badge{
+      width: 38px;
+      height: 38px;
+      border-radius: 14px;
+      display:grid;
+      place-items:center;
+      overflow: hidden;
+      border: 1px solid var(--ring);
+      background: linear-gradient(180deg, var(--card2), transparent);
+      flex-shrink:0;
+    }
 
-.badge .txt{
-  font-weight: 800;
-  letter-spacing: .4px;
-  font-size: 9.5px;
-  line-height: 1;
-  opacity: .92;
-  transform: translateY(.5px);
-  user-select:none;
-  max-width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+    
+    .badge svg{
+      width: 22px;
+      height: 22px;
+      display:block;
+      opacity:.92;
+    }
 
+    .badge .txt{
+      font-weight: 800;
+      letter-spacing: .4px;
+      font-size: 9.5px;
+      line-height: 1;
+      opacity: .92;
+      transform: translateY(.5px);
+      user-select:none;
+      max-width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
 .label{
-  display:flex;
-  flex-direction:column;
-  gap:2px;
-  min-width:0;
-}
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+      min-width:0;
+    }
 
-.label strong{
-  font-size: 15px;
-  line-height: 1.15;
-  font-weight: 650;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
+    .label strong{
+      font-size: 15px;
+      line-height: 1.15;
+      font-weight: 650;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
 
-.label span{
-  font-size: 12.5px;
-  line-height: 1.25;
-  color: var(--muted);
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
+    .label span{
+      font-size: 12.5px;
+      line-height: 1.25;
+      color: var(--muted);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
 
-.arrow{
-  opacity:.85;
-  flex-shrink:0;
-}
+    .arrow{
+      opacity:.85;
+      flex-shrink:0;
+    }
 
-.contacts{
-  padding: 14px 18px 18px 18px;
-  border-top: 1px solid var(--ring);
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.45;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
+    .contacts{
+      padding: 14px 18px 18px 18px;
+      border-top: 1px solid var(--ring);
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
 
-.contacts .block{
-  display:flex;
-  flex-direction:column;
-  gap:6px;
-}
+    .contacts .block{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
 
-.contacts strong{
-  color: var(--text);
-  font-weight: 650;
-  font-size: 13px;
-}
+    .contacts strong{
+      color: var(--text);
+      font-weight: 650;
+      font-size: 13px;
+    }
 
-.contacts a{
-  color: var(--text);
-  text-decoration:none;
-  border-bottom: 1px dotted color-mix(in oklab, var(--text) 35%, transparent);
-  width: fit-content;
-}
-.contacts a:hover{
-  border-bottom-color: color-mix(in oklab, var(--text) 60%, transparent);
-}
+    .contacts a{
+      color: var(--text);
+      text-decoration:none;
+      border-bottom: 1px dotted color-mix(in oklab, var(--text) 35%, transparent);
+      width: fit-content;
+    }
+    .contacts a:hover{
+      border-bottom-color: color-mix(in oklab, var(--text) 60%, transparent);
+    }
 
-svg{ width:20px; height:20px; display:block; }
+    svg{ width:20px; height:20px; display:block; }
 
-.themeFab{
-  position: fixed;
-  right: calc(16px + env(safe-area-inset-right));
-  bottom: calc(16px + env(safe-area-inset-bottom));
-  z-index: 999;
-  appearance:none;
-  border: 1px solid var(--ring);
-  background: var(--btn);
-  color: var(--text);
-  border-radius: 16px;
-  width: 54px;
-  height: 54px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  box-shadow: var(--shadow);
-  transition: transform .12s ease, background .12s ease, border-color .12s ease;
-  backdrop-filter: blur(10px);
-}
-.themeFab:hover{ background: var(--btnHover); }
-.themeFab:active{ background: var(--btnActive); transform: translateY(1px); }
-.themeFab:focus{ outline:none; }
-.themeFab:focus-visible{
-  box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 35%, transparent), var(--shadow);
-  border-color: color-mix(in oklab, var(--accent) 35%, var(--ring));
-}
+    /* Кнопка темы внизу справа */
+    .themeFab{
+      position: fixed;
+      right: calc(16px + env(safe-area-inset-right));
+      bottom: calc(16px + env(safe-area-inset-bottom));
+      z-index: 999;
+      appearance:none;
+      border: 1px solid var(--ring);
+      background: var(--btn);
+      color: var(--text);
+      border-radius: 16px;
+      width: 54px;
+      height: 54px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      box-shadow: var(--shadow);
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      backdrop-filter: blur(10px);
+    }
+    .themeFab:hover{ background: var(--btnHover); }
+    .themeFab:active{ background: var(--btnActive); transform: translateY(1px); }
+    .themeFab:focus{ outline:none; }
+    .themeFab:focus-visible{
+      box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 35%, transparent), var(--shadow);
+      border-color: color-mix(in oklab, var(--accent) 35%, var(--ring));
+    }
 
-@media (min-width: 860px) {
-  html,body {
+    @media (min-width: 860px) {
+  body {
     padding: max(28px, env(safe-area-inset-top)) 28px calc(28px + 86px + env(safe-area-inset-bottom));
-    align-items: center;
+    align-items: center; /* На десктопе можно оставить центрирование */
   }
   .wrap {
-    max-width: 600px;
-    margin-top: 20px;
-  }
+    width: 100%;
+}
   .logo {
     height: 92px;
   }
@@ -299,17 +317,27 @@ svg{ width:20px; height:20px; display:block; }
     height: 56px;
   }
 }
-</style>
+.wrap{ width: 100%;
+}
+      .logo{ height: 92px; }
+      .themeFab{
+        right: calc(22px + env(safe-area-inset-right));
+        bottom: calc(22px + env(safe-area-inset-bottom));
+        width: 56px;
+        height: 56px;
+      }
+    }
+  </style>
 </head>
 
 <body>
   <main class="wrap">
     <section class="card" aria-label="Страница визитка">
-
       <header class="header">
         <img class="logo" src="logo.png" alt="Корпорация Холод" />
       </header>
-<div class="content">
+
+      <div class="content">
         <div class="list" role="list">
 
           <!-- 1) Официальный сайт -->
